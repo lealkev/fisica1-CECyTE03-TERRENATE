@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Física: Ondas y Ley de Coulomb</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwXFx9fC-pP3_kaQVzqMCu2OrOWCrgscmDuQ&usqp=CAU');
+            color: #fff;
+        }
+
+        /* Estilos para el encabezado */
+        header {
+            background-color: #333333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        /* Estilos para la navegación */
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Estilos para las secciones */
+        section {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #00d3e2;
+            border-radius: 5px;
+            background-color: #000000; 
+        }
+
+        section h2 {
+            margin-top: 0;
+        }
+
+        section p {
+            margin-bottom: 10px;
+        }
+
+        section img {
+            display: block;
+            margin: 10px auto;
+        }
+
+        section ul {
+            padding-left: 20px;
+        }
+
+        /* Estilos para los botones */
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Estilos para el pie de página */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+        }
+        .content {
+            background-color: #fff;
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h1 {
+            text-align: center;
+            color: #007BFF;
+            margin-bottom: 1em;
+        }
+        .form-group {
+            margin-bottom: 1.5em;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5em;
+        }
+        select, input {
+            width: 100%;
+            padding: 0.5em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 0.75em;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            text-align: center;
+            margin-top: 1em;
+            font-weight: bold;
+        }
+        footer {
+            text-align: center;
+            padding: 1em 0;
+            background-color: #007BFF;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>FISICA</h1>
+        <nav>
+            <ul>
+                <li><a href="#introduccion">INTRODUCCION</a></li>
+                <li><a href="#ondas">ONDAS</a></li>
+                <li><a href="#coulomb">LEY DE COULOMB</a></li>
+                <li><a href="#OHM">CIRCUITOS ELECTRICOS</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+        <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+    
+</head>
+    <script>
+        const canvas = document.getElementById('waveCanvas');
+        const ctx = canvas.getContext('2d');
+        const centerX = canvas.width / 2;
+        const centerY = canvas.height / 2;
+        const amplitude = 50;
+        const frequency = 0.02;
+        let time = 0;
+
+        function drawWave() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.beginPath();
+            ctx.moveTo(0, centerY);
+
+            for (let x = 0; x <= canvas.width; x += 5) {8
+                const yOffset = amplitude * Math.sin(frequency * x + time);
+                const y = centerY + yOffset;
+                ctx.lineTo(x, y);
+            }
+
+            ctx.strokeStyle = 'blue';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+            time += 0.1;
+        }
+
+        setInterval(drawWave, 50);
+    </script>
+
+<section id="introduccion">
+ <CENTER><h2>INTRODUCCION</h2></CENTER>
+  <h3><p>La física es una rama fundamental de la ciencia que se enfoca en comprender las leyes que gobiernan el universo, desde las partículas subatómicas hasta los enormes sistemas cósmicos. A través de la observación, la experimentación y el razonamiento teórico, los físicos buscan descubrir y explicar los principios fundamentales que rigen el comportamiento de la materia, la energía, el espacio y el tiempo. Desde la formulación de las leyes de la mecánica clásica por Isaac Newton hasta la teoría de la relatividad de Albert Einstein y la mecánica cuántica, la física ha revolucionado nuestra comprensión del mundo que nos rodea y ha generado avances tecnológicos que han transformado la sociedad. En esta breve introducción, exploraremos algunos de los conceptos básicos y las áreas de estudio más destacadas dentro de esta fascinante disciplina científica.</p></h3>
+</section>
+
+    <section id="ondas">
+        <h2>Ondas en la Física</h2>
+        <img src="https://static.wixstatic.com/media/5998ac_ba1da15bc8c14ef283c0def43a0335a0~mv2.gif" alt="Ondas" width="300">
+        <div style="display: flex; align-items: center;">
+            <div style="flex: 1;">
+        <CENTER><h2>TIPOS DE ONDAS</h2></CENTER>
+        <p><H4>Según el medio en que se propagan:
+            Ondas mecánicas. Precisan de un medio elástico (líquido, gaseoso o sólido) y de condiciones determinadas de temperatura y presión, para propagarse efectivamente. Por ejemplo: las ondas sonoras que se propagan por el aire o por el agua.</H4></p>
+           <P><H4>Ondas electromagnéticas. No requieren de un medio porque se pueden propagar en el vacío. Por ejemplo: la luz.</H4></P>
+           <P><H4>Ondas gravitacionales. Alteraciones del espacio-tiempo (recién confirmadas por la ciencia).</H4></p>
+            </div>
+        <div style="flex: 1;"></div>
+            <img src="https://previews.123rf.com/images/kytalpa/kytalpa1206/kytalpa120600005/13885991-ilustraci%C3%B3n-de-la-f%C3%ADsica-oscilaciones-de-las-ondas-y-los-fen%C3%B3menos-s%C3%ADmbolos-dibujados-a-mano.jpg" alt="Ondas" width="500" height="300">
+        </div>
+             
+            <P><H4>Según su periodicidad:</P>
+               Ondas periódicas. Presentan ciclos repetitivos.
+                Ondas no periódicas. Presentan ciclos irregulares.</H4></P>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Standing_wave_2.gif/640px-Standing_wave_2.gif" alt="Ondas" width="300">
+               
+               <P><H4>Según su dirección:               
+                Ondas unidimensionales. Se propagan a través de una sola dimensión en el espacio.
+                Ondas bidimensionales. Se propagan a través de dos dimensiones y se suelen llamar también superficiales.
+                Ondas tridimensionales. Se propagan en tres dimensiones y suelen llamarse esféricas.</H4></P>
+                <img src="https://files.mtstatic.com/site_4334/268566/0?Expires=1712930187&Signature=N5cAaGQiSTFfrd4BFVIReucnMhnRDg0fXPbKNooAVil~XoJTr~zREbWMIOhW7ipmFcY7b94JejWGsKqjjVdv-0wD-AIMD9TRU3ECO1JATbHAvDP3-O8utrVHck2v8g17rYe0kNzjb8oolllWtFQDt3Cu2ed1uUwqBtS4UeiE054_&Key-Pair-Id=APKAJ5Y6AV4GI7A555NA" alt="Ondas" width="300">
+
+              <p><h4>Según el movimiento del medio:</h4>
+              <p>Ondas longitudinales: Las partículas del medio se mueven en la misma dirección en que se propaga la onda.</p>
+              <p>Ondas transversales: Las partículas vibran perpendicularmente a la dirección de propagación de la onda.</p></p>
+              <img src="https://ik.imagekit.io/smdxc0e2g3/userscontent2-endpoint/images/0fe04c55-e806-4881-baff-e69e8f747d62/d06f72ba4d732908c1312b4a277d4e9b.gif?tr=w-600" alt="Ondas" width="300">
+
+
+        <p>Las ondas son fenómenos físicos que involucran la propagación de energía a través de un medio. Pueden ser mecánicas, como las ondas sonoras, o electromagnéticas, como las ondas de luz.</p>
+       
+        <CENTER><H2>PARTES DE ONDAS</H2></CENTER>
+        <P><H4>Partes de una onda
+            Una onda se compone de las siguientes partes:
+            
+            Cresta. Es el punto máximo en la ondulación.
+            Valle. Es el punto más bajo de una onda (lo contrario de la cresta).
+            Período. Es el tiempo que demora la onda en ir desde una cresta hasta la siguiente, o sea, en repetirse. Se representa con la letra T.
+            Amplitud. Representa la variación máxima del desplazamiento, la distancia vertical entre la cresta y el punto medio de la onda. Se representa con la letra A.
+            Frecuencia. Es el número de veces que la onda se repite en una unidad determinada de tiempo, razón por la cual se calcula según la fórmula f = 1/T. Se representa con la letra f.
+            Longitud de onda. Es la distancia entre dos crestas consecutivas de la ondulación. Se representa con el símbolo ? (lamda).
+            Ciclo. Es la ondulación completa, de principio a fin.</H4></P>
+            <img src="https://i.pinimg.com/736x/ac/51/9c/ac519c602b7239881735b26f12fae7e0.jpg" alt="Ondas" width="300">
+            <h1>Calculadora de Ondas</h1>
+            <div class="form-group">
+                <label for="calculo">Seleccione un cálculo:</label>
+                <select id="calculo">
+                    <option value="longitud_onda">Calcular Longitud de Onda</option>
+                    <option value="frecuencia">Calcular Frecuencia</option>
+                    <option value="velocidad">Calcular Velocidad de la Onda</option>
+                    <option value="periodo">Calcular Período de la Onda</option>
+                </select>
+            </div>
+            <div class="form-group" id="velocidad-group">
+                <label for="velocidad">Velocidad de la onda (m/s):</label>
+                <input type="number" id="velocidad" step="any">
+            </div>
+            <div class="form-group" id="frecuencia-group">
+                <label for="frecuencia">Frecuencia de la onda (Hz):</label>
+                <input type="number" id="frecuencia" step="any">
+            </div>
+            <div class="form-group" id="longitud-group">
+                <label for="longitud_onda">Longitud de onda (m):</label>
+                <input type="number" id="longitud_onda" step="any">
+            </div>
+            <div class="form-group">
+                <button onclick="calcular()">Calcular</button>
+            </div>
+            <div class="result" id="resultado"></div>
+        </div>
+    
+        <script>
+            function calcular() {
+                const calculo = document.getElementById('calculo').value;
+                const velocidad = parseFloat(document.getElementById('velocidad').value);
+                const frecuencia = parseFloat(document.getElementById('frecuencia').value);
+                const longitud_onda = parseFloat(document.getElementById('longitud_onda').value);
+                let resultado = '';
+    
+                switch(calculo) {
+                    case 'longitud_onda':
+                        if (velocidad && frecuencia) {
+                            resultado = `La longitud de onda es: ${(velocidad / frecuencia).toFixed(2)} m`;
+                        } else {
+                            resultado = 'Por favor, ingrese velocidad y frecuencia.';
+                        }
+                        break;
+                    case 'frecuencia':
+                        if (velocidad && longitud_onda) {
+                            resultado = `La frecuencia de la onda es: ${(velocidad / longitud_onda).toFixed(2)} Hz`;
+                        } else {
+                            resultado = 'Por favor, ingrese velocidad y longitud de onda.';
+                        }
+                        break;
+                    case 'velocidad':
+                        if (longitud_onda && frecuencia) {
+                            resultado = `La velocidad de la onda es: ${(longitud_onda * frecuencia).toFixed(2)} m/s`;
+                        } else {
+                            resultado = 'Por favor, ingrese longitud de onda y frecuencia.';
+                        }
+                        break;
+                    case 'periodo':
+                        if (frecuencia) {
+                            resultado = `El período de la onda es: ${(1 / frecuencia).toFixed(2)} s`;
+                        } else {
+                            resultado = 'Por favor, ingrese frecuencia.';
+                        }
+                        break;
+                    default:
+                        resultado = 'Seleccione un cálculo válido.';
+                }
+    
+                document.getElementById('resultado').innerText = resultado;
+            }
+    
+            // Mostrar u ocultar campos según el cálculo seleccionado
+            document.getElementById('calculo').addEventListener('change', function() {
+                const calculo = this.value;
+                document.getElementById('velocidad-group').style.display = 'block';
+                document.getElementById('frecuencia-group').style.display = 'block';
+                document.getElementById('longitud-group').style.display = 'block';
+    
+                if (calculo === 'periodo') {
+                    document.getElementById('velocidad-group').style.display = 'none';
+                    document.getElementById('longitud-group').style.display = 'none';
+                } else if (calculo === 'longitud_onda') {
+                    document.getElementById('longitud-group').style.display = 'none';
+                } else if (calculo === 'frecuencia') {
+                    document.getElementById('frecuencia-group').style.display = 'none';
+                } else if (calculo === 'velocidad') {
+                    document.getElementById('velocidad-group').style.display = 'none';
+                }
+            });
+    
+            // Inicializar la vista
+            document.getElementById('calculo').dispatchEvent(new Event('change'));
+        </script>
+    </section>
+
+<section id="coulomb">
+    <h2>Ley de Coulomb</h2>
+    <p>La ley de Coulomb describe la fuerza eléctrica entre dos cargas eléctricas. Establece que la fuerza es directamente proporcional al producto de las magnitudes de las cargas e inversamente proporcional al cuadrado de la distancia entre ellas.</p>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdxqmnWbTyiHg8Rf9M4SUwv8AMksHXs9XKs8_IQy34IQ&s" alt="Ley de Coulomb" width="300">
+    <h3>Fórmula de la ley de Coulomb:</h3>
+    <p>F = k * (|q1 * q2|) / r^2</p>
+    <p>Donde:</p>
+    <ul>
+        <li>F es la fuerza entre las cargas.</li>
+        <li>k es la constante de Coulomb.</li>
+        <li>q1 y q2 son las magnitudes de las cargas.</li>
+        <li>r es la distancia entre las cargas.</li>
+    </ul>
+    <h1>Calculadora de Fuerza Eléctrica</h1>
+    <div class="form-group">
+        <label for="carga1">Carga 1 (Coulombs):</label>
+        <input type="number" id="carga1" step="any">
+    </div>
+    <div class="form-group">
+        <label for="carga2">Carga 2 (Coulombs):</label>
+        <input type="number" id="carga2" step="any">
+    </div>
+    <div class="form-group">
+        <label for="distancia">Distancia (metros):</label>
+        <input type="number" id="distancia" step="any">
+    </div>
+    <div class="form-group">
+        <button onclick="calcularFuerza()">Calcular</button>
+    </div>
+    <div class="result" id="resultadoCoulomb"></div>
+</section>
+
+<script>
+    function calcularFuerza() {
+        const carga1 = parseFloat(document.getElementById('carga1').value);
+        const carga2 = parseFloat(document.getElementById('carga2').value);
+        const distancia = parseFloat(document.getElementById('distancia').value);
+        const constanteK = 8.99e9; // Constante de Coulomb en N·m²/C²
+
+        if (isNaN(carga1) || isNaN(carga2) || isNaN(distancia) || distancia === 0) {
+            document.getElementById('resultadoCoulomb').innerText = 'Por favor, ingrese valores válidos y asegúrese de que la distancia no sea cero.';
+            return;
+        }
+
+        const fuerza = (constanteK * carga1 * carga2) / (distancia * distancia);
+        document.getElementById('resultadoCoulomb').innerText = `La fuerza eléctrica es: ${fuerza.toFixed(2)} N`;
+    }
+</script>
+
+<section id="OHM">
+    <center><h2>Circuitos Eléctricos en Física</h2></center>
+    <p><h4>Los circuitos eléctricos son fundamentales en la física y la ingeniería. La Ley de Ohm es una de las fórmulas más importantes para entender el comportamiento de la corriente eléctrica en un circuito.</h4></p>
+    <p><h4>La Ley de Ohm establece que la corriente que pasa a través de un conductor entre dos puntos es directamente proporcional a la tensión entre esos dos puntos. La fórmula básica es:</h4></p>
+    <p><h4>V = I * R</h4></p>
+    <p><h4>donde:</h4></p>
+    <ul>
+        <li><h4>V es el voltaje (en voltios, V)</h4></li>
+        <li><h4>I es la corriente (en amperios, A)</h4></li>
+        <li><h4>R es la resistencia (en ohmios, O)</h4></li>
+    </ul>
+    <p><h4>Algunos ejemplos de cómo usar la Ley de Ohm:</h4></p>
+    <ul>
+        <li><h4>Para calcular el voltaje: V = I * R</h4></li>
+        <li><h4>Para calcular la corriente: I = V / R</h4></li>
+        <li><h4>Para calcular la resistencia: R = V / I</h4></li>
+    </ul>
+
+    <h1>Calculadora de Circuitos Eléctricos</h1>
+    <div class="form-group">
+        <label for="voltaje">Voltaje de la fuente (V):</label>
+        <input type="number" id="voltaje" step="any">
+    </div>
+    <div class="form-group">
+        <label for="resistencias">Resistencias (Ohms), separadas por comas:</label>
+        <input type="text" id="resistencias">
+    </div>
+    <div class="form-group">
+        <label for="tipo">Tipo de circuito:</label>
+        <select id="tipo">
+            <option value="serie">Serie</option>
+            <option value="paralelo">Paralelo</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <button onclick="calcularCircuito()">Calcular</button>
+    </div>
+    <div class="result" id="resultadoOhm"></div>
+</section>
+
+<script>
+    function calcularCircuito() {
+        const voltaje = parseFloat(document.getElementById('voltaje').value);
+        const resistencias = document.getElementById('resistencias').value.split(',').map(Number);
+        const tipo = document.getElementById('tipo').value;
+
+        if (isNaN(voltaje) || voltaje <= 0) {
+            document.getElementById('resultadoOhm').innerText = 'Por favor, ingrese un voltaje válido mayor a 0.';
+            return;
+        }
+
+        if (resistencias.some(isNaN) || resistencias.some(r => r <= 0)) {
+            document.getElementById('resultadoOhm').innerText = 'Por favor, ingrese valores de resistencias válidos mayores a 0.';
+            return;
+        }
+
+        let resistenciaTotal;
+        let corrienteTotal;
+        let resultadoHTML = "";
+
+        if (tipo === 'serie') {
+            resistenciaTotal = resistencias.reduce((acc, val) => acc + val, 0);
+            corrienteTotal = voltaje / resistenciaTotal;
+
+            resultadoHTML = `
+                <p>Resistencia Total: ${resistenciaTotal.toFixed(2)} Ω</p>
+                <p>Corriente Total: ${corrienteTotal.toFixed(2)} A</p>
+                <p>Voltajes Parciales:</p>
+                <ul>
+            `;
+
+            resistencias.forEach((resistencia, index) => {
+                const voltajeParcial = corrienteTotal * resistencia;
+                resultadoHTML += `<li>Voltaje en R${index + 1}: ${voltajeParcial.toFixed(2)} V</li>`;
+            });
+
+            resultadoHTML += `</ul>`;
+        } else if (tipo === 'paralelo') {
+            resistenciaTotal = 1 / resistencias.reduce((acc, val) => acc + (1 / val), 0);
+            corrienteTotal = voltaje / resistenciaTotal;
+            const potenciaTotal = voltaje * corrienteTotal;
+
+            resultadoHTML = `
+                <p>Resistencia Equivalente: ${resistenciaTotal.toFixed(2)} Ω</p>
+                <p>Corriente Total: ${corrienteTotal.toFixed(2)} A</p>
+                <p>Potencia Total: ${potenciaTotal.toFixed(2)} W</p>
+                <p>Corrientes Parciales y Voltajes:</p>
+                <ul>
+            `;
+
+            resistencias.forEach((resistencia, index) => {
+                const corrienteParcial = voltaje / resistencia;
+                resultadoHTML += `<li>Corriente en R${index + 1}: ${corrienteParcial.toFixed(2)} A, Voltaje en R${index + 1}: ${voltaje.toFixed(2)} V</li>`;
+            });
+
+            resultadoHTML += `</ul>`;
+        }
+
+        document.getElementById('resultadoOhm').innerHTML = resultadoHTML;
+    }
+</script>
+
+
+
+    <footer>
+        <p>&copy; FISICA 2024 CECyTE 03.KEVIN LEAL,KEYLI YUDID,YARITZY JOHANA</p>
+    </footer>
+</body>
+</html>
